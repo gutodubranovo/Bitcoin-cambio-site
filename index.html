@@ -1,125 +1,101 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bitcoin Câmbio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #f7931a;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2.5rem;
-    }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      font-weight: 300;
-    }
-    section {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    .moedas {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .moeda {
-      background: white;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      font-weight: 600;
-    }
-    .cotacoes {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .btn-atualizar {
-      margin-top: 1rem;
-      background: #f7931a;
-      color: white;
-      padding: 0.7rem 1.2rem;
-      border: none;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .contato {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    .contato a {
-      color: #f7931a;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    footer {
-      background-color: #222;
-      color: #ccc;
-      padding: 1.5rem;
-      text-align: center;
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Câmbio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Bitcoin Câmbio</h1>
-    <p>Conectando o mundo digital ao mundo real.</p>
-  </header>
+    
+<div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": { "enable": true, "value_area": 800 }
+    },
+    "color": { "value": "#ffffff" },
+    "shape": {
+      "type": "circle",
+      "stroke": { "width": 0, "color": "#000000" }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": { "enable": false }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": { "enable": false }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 3,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": { "enable": true, "mode": "repulse" },
+      "onclick": { "enable": true, "mode": "push" },
+      "resize": true
+    },
+    "modes": {
+      "repulse": { "distance": 100, "duration": 0.4 },
+      "push": { "particles_nb": 4 }
+    }
+  },
+  "retina_detect": true
+});
+</script>
 
-  <section>
-    <h2>Moedas que trabalhamos</h2>
-    <div class="moedas">
-      <div class="moeda">Bitcoin (BTC)</div>
-      <div class="moeda">Ethereum (ETH)</div>
-      <div class="moeda">USDT</div>
-      <div class="moeda">Dólar</div>
-      <div class="moeda">Real</div>
-      <div class="moeda">Euro</div>
-      <div class="moeda">Peso Argentino</div>
-      <div class="moeda">Guarani</div>
-    </div>
-  </section>
-
-  <section class="cotacoes">
-    <h2>Cotações do dia</h2>
-    <p>Confira as cotações atualizadas diretamente com nossa equipe via WhatsApp.</p>
-    <button class="btn-atualizar" onclick="window.open('https://wa.me/595991398215', '_blank')">Consultar agora</button>
-  </section>
-
-  <section class="contato">
-    <h2>Entre em contato</h2>
-    <p>WhatsApp: <a href="https://wa.me/595991398215" target="_blank">+595 991 398 215</a></p>
-    <p>Endereço: Microcentro de Ciudad del Este, perto da Ponte da Amizade</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Bitcoin Câmbio. Todos os direitos reservados.</p>
-  </footer>
+    <header>
+        <h1>Bitcoin Câmbio</h1>
+        <div class="marquee">
+            <p>Cripto virou dinheiro de verdade — Câmbio rápido, seguro e digital — Transforme Bitcoin e USDT em dólar em minutos</p>
+        </div>
+    </header>
+    <main>
+        <h2>Cotações em Tempo Real</h2>
+        <table id="rates">
+            <thead>
+                <tr>
+                    <th>Moeda</th>
+                    <th>Cotação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><img src="icons/btc.png" class="icon"> Bitcoin</td><td id="btc">Carregando...</td></tr>
+                <tr><td><img src="icons/eth.png" class="icon"> Ethereum</td><td id="eth">Carregando...</td></tr>
+                <tr><td><img src="icons/usdt.png" class="icon"> USDT</td><td id="usdt">Carregando...</td></tr>
+                <tr><td><img src="icons/usd.png" class="icon"> Dólar</td><td id="usd">Carregando...</td></tr>
+                <tr><td><img src="icons/brl.png" class="icon"> Real</td><td id="brl">Carregando...</td></tr>
+                <tr><td><img src="icons/eur.png" class="icon"> Euro</td><td id="eur">Carregando...</td></tr>
+                <tr><td><img src="icons/ars.png" class="icon"> Peso Argentino</td><td id="ars">Carregando...</td></tr>
+                <tr><td><img src="icons/pyg.png" class="icon"> Guarani</td><td id="pyg">Carregando...</td></tr>
+            </tbody>
+        </table>
+        <p>Contato: +595 991 398 215<br>Localização: Microcentro de Ciudad del Este, perto da Ponte da Amizade</p>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
